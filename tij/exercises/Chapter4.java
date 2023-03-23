@@ -7,7 +7,7 @@ public class Chapter4 {
         return (x*71)/2.0;
     }
 
-    public static void multaddMain() {
+    public static void multAddTests() {
         System.out.println(multadd(1.0, 2.0, 3.0));
         System.out.println(multadd(0.5, Math.cos(Math.PI / 4), Math.sin(Math.PI / 4)));
         multadd(0.5, Math.cos(Math.PI / 4), Math.sin(Math.PI / 4));

@@ -1,7 +1,50 @@
 package tij.exercises;
 
+import java.util.Arrays;
+
 public class Chapter7 {
-    Chapter7(){}
+    Chapter7() {
+    }
+
+    public static boolean isAnagramWithSort(String first, String second) {
+        first = first.toLowerCase();
+        second = second.toLowerCase();
+
+        if (first.length() == second.length()) {
+            char[] arrFirst = first.toCharArray();
+            char[] arrSecond = second.toCharArray();
+
+            Arrays.sort(arrFirst);
+            Arrays.sort(arrSecond);
+
+            return Arrays.equals(arrFirst, arrSecond);
+        } else {
+            return false;
+        }
+    }
+
+    // using letterHist
+    public static boolean isAnagram(String first, String second) {
+        if (first.length() == second.length()) {
+            int[] histFirst = letterHist(first);
+            int[] histSecond = letterHist(second);
+
+            return Arrays.equals(histFirst, histSecond);
+        } else {
+            return false;
+        }
+    }
+
+    public static int[] letterHist(String word) {
+        int[] counts = new int[256];
+        char[] letters = word.toLowerCase().toCharArray();
+        // for (int i = 0; i < lower.length(); i++) {
+        for (char letter : letters) {
+            // counts[letters[i]]++;
+            counts[letter]++;
+        }
+        return counts;
+    }
 
     public static boolean arePrimeFactors(int n, int[] arr) {
         for (int el : arr) {
@@ -11,13 +54,6 @@ public class Chapter7 {
         }
         return areFactors(n, arr);
     }
-    /*
-    
-    BOI SIE BOI SIE SIUSIAAAK!!!!!
-    MARTYNA MA MAŁEGO SIUSIAKA
-    MARTYNA MA SUISIAKAAAAA    
-
-    */
 
     public static boolean isPrime(int n) {
         if (n < 2) {
